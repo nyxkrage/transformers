@@ -1883,7 +1883,7 @@ class MolmoForConditionalGeneration(MolmoPreTrainedModel, GenerationMixin):
             **kwargs,
         )
 
-        if cache_position[0] == 0:
+        if cache_position is not None and cache_position[0] == 0:
             model_inputs["pixel_values"] = pixel_values
             model_inputs["image_token_indices"] = image_token_indices
             model_inputs["image_masks"] = image_masks
